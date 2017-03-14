@@ -9,9 +9,13 @@
     "watch": "npm run watch-compile"
   },
   "dependencies": {
-    "thinkjs": "2.2.x",
     "babel-runtime": "6.x.x",
-    "source-map-support": "0.4.0"
+    "element-ui": "^1.2.3",
+    "jsonwebtoken": "^7.3.0",
+    "source-map-support": "0.4.0",
+    "thinkjs": "2.2.x",
+    "vue": "^2.2.2",
+    "vuex": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

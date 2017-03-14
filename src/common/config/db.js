@@ -8,10 +8,10 @@ export default {
   adapter: {
     mysql: {
       host: '127.0.0.1',
-      port: '',
-      database: '',
-      user: '',
-      password: '',
+      port: '3306',
+      database: 'admin',
+      user: 'root',
+      password: '1234',
       prefix: '',
       encoding: 'utf8'
     },
