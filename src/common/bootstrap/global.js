@@ -16,17 +16,28 @@ import jwt from 'jsonwebtoken';
 const KEY_SECRET = 'H_J_J_ONLINE_SECRET';
 
 global.setToken = function(params) {
-    let token = jwt.sign({...params }, KEY_SECRET, { expiresIn: '2h' });
+    let token = jwt.sign({...params }, KEY_SECRET, { expiresIn: '20s' });
     return token;
 }
 global.setRefreshToken = function(params) {
     let token = jwt.sign({...params }, KEY_SECRET, { expiresIn: '7d' });
     return token;
 }
+
 global.verifyToken = function(token) {
     return new Promise((resolve, reject) => {
         jwt.verify(token, KEY_SECRET, (err, decoded) => {
             err ? reject(err) : resolve(decoded);
         });
+    })
+}
+global.decodeToken = function(token) {
+    return new Promise((resolve, reject) => {
+        try {
+            let decoded = jwt.decode(token, KEY_SECRET);
+            resolve(decoded)
+        } catch(err) {
+            reject(err)
+        }
     })
 }

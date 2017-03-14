@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+ul,li{
+    list-style: none
+}
+a{
+    text-decoration: none;
+}
+body,button,input{
+    font-family:'Microsoft YaHei', 'Times', 'TimesNR', 'New Century Schoolbook',Georgia, 'New York', 'serif';
+    font-size:12px;
+    color:#333;
+}

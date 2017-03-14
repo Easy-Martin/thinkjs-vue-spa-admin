@@ -1,0 +1,2 @@
+webpackJsonp([6,10],{101:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.default={name:"Shop"}},118:function(e,n){e.exports={render:function(){var e=this,n=e.$createElement;return(e._self._c||n)("div")},staticRenderFns:[]}},83:function(e,n,t){var r=t(28)(t(101),t(118),null,null);e.exports=r.exports}});
+//# sourceMappingURL=6.js.map
