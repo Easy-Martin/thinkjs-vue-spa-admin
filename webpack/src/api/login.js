@@ -5,7 +5,7 @@ const BASE_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:
 export const loginAction = (payload) => {
     return request({
             method: 'post',
-            url: BASE_URL + '/home/admin/login',
+            url: BASE_URL + '/home/public/login',
             data: { username: payload.username, password: payload.password },
             type: 'json'
         })
@@ -14,7 +14,7 @@ export const loginAction = (payload) => {
 export const logoutAction = (payload) => {
     return request({
             method: 'post',
-            url: BASE_URL + '/home/admin/logout',
+            url: BASE_URL + '/home/public/logout',
             type: 'json'
         })
 }

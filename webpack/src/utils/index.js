@@ -5,7 +5,7 @@ export const updateToken = (vm, payload, fn) => {
         if(payload.code === 301){
             return reqwest({
                 method: 'post',
-                url: BASE_URL + '/home/admin/checklogin',
+                url: BASE_URL + '/home/public/checklogin',
                 headers: {
                     'x-access-refresh-token': vm.getRefreshToken,
                     'x-access-token': vm.getToken

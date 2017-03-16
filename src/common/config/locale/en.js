@@ -7,6 +7,8 @@ export default {
     USERNAME_ADMIN_ERROR: [104, "请用Admin账户登录，移到个人设置下修改，不能删除Admin账户"],
     PARAM_ERROR: [201, "参数错误"],
     LOGIN_EXPIRED: [301, "登录已失效"],
-    LOGIN_ERROR: [302, "登录已过期"],
+    SIGN_ERROR: [302, "登录已过期"],
     PERMISSION_ERROR: [601, "权限错误"],
+    validate_required: '{name} can not be blank',
+    validate_contains: '{name} need contains {args}',
 };

@@ -48,10 +48,10 @@
                     password: this.password,
                 }).then(() => {
                     this.$router.replace('/');
-                    this.errMsg = ''
+                    
                 }).catch(err => {
                     this.errMsg = err.msg;
-                    this.disabled = true;
+                    this.disabled = false;
                     this.btnText = '登陆';
                 })
             }
