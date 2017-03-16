@@ -1,2 +1,0 @@
-webpackJsonp([7,10],{116:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement;return(e._self._c||t)("div")},staticRenderFns:[]}},79:function(e,t,n){var r=n(28)(n(95),n(116),null,null);e.exports=r.exports},95:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"Article"}}});
-//# sourceMappingURL=7.js.map
