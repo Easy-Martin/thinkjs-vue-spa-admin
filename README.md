@@ -17,3 +17,6 @@
 
 http://localhost:8360
 
+# 帐号密码
+
+admin  123456
