@@ -3,15 +3,17 @@
 
 
 # 启动命令
+`npm install`
 
-``
-npm install
-npm start
+`npm start`
 
-cd webpack
-npm install
-npm run build
+***
+
+`cd webpack`
+
+`npm install`
+
+`npm run build`
 
 http://localhost:8360
 
-``
