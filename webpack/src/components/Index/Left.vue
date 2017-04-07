@@ -1,22 +1,28 @@
 <template>
     <el-col :span="4" class="left_cnt">
         <el-menu :default-active="currentIndex" class="el-menu-vertical-demo" theme="dark" @select="handleSelect">
-            <el-menu-item  :key="item.id" v-for="(item,index) in menu" :index="index.toString()"><i :class="item.icon"></i>{{item.name}}</el-menu-item>
+            <el-menu-item  v-for="(item,index) in thisMenu" :key="item.id" :index="index.toString()"><i :class="item.icon"></i>{{item.name}}</el-menu-item>
         </el-menu>
     </el-col>
 </template>
 <script>
   import {mapGetters,mapActions} from 'vuex';
+
+  function getIndex(){
+      let index = sessionStorage.getItem('currentIndex') || '0';
+      return (/^[0-9]+$/.test(index))? parseInt(index).toString(): '0'
+  }
+
   export default {
     data(){
         return {
-            currentIndex:sessionStorage.getItem('currentIndex')||'0',
+            currentIndex: getIndex(),
         }
     },
     computed:{
         ...mapGetters(['getToken','getMenuList']),
-        menu(){
-            return this.getMenuList
+        thisMenu(){
+            return this.getMenuList.thisMenu
         }
     },
     methods: {
@@ -24,23 +30,12 @@
       handleSelect(index) {
         this.currentIndex = index;
         sessionStorage.setItem('currentIndex',index);
-        this.$router.replace({path:'/'+ this.menu[index].mark,query:{name:this.menu[index].name}})
+        this.$router.replace({path:'/'+ this.thisMenu[index].mark})
       }
     },
-    watch:{
-        ['menu'](n,o){
-            if(this.$route.path == '/'){
-                this.$router.replace({path:'/'+ n[this.currentIndex].mark,query:{name:n[this.currentIndex].name}})
-            }
-        }
-    },
-    props:{
-        menu:{
-            required:true,
-            type:Array,
-            default:()=>{
-                return []
-            }
+    updated(){
+        if(this.$route.path == '/'){
+            this.$router.replace({path:'/'+ this.thisMenu[this.currentIndex].mark})
         }
     }
   }

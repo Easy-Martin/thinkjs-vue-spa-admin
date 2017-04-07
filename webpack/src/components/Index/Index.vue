@@ -7,7 +7,7 @@
       </div>
       <div class="menu">
         <el-row type="flex" class="index">
-          <left-layout :menu="getMenuList" />
+          <left-layout/>
         </el-row>
       </div>
       <div class="info">
@@ -18,7 +18,7 @@
     <div class="index_right" ref="right" :style="{'width':rightWidth + 'px'}">
       <div class="breadcrumb">
         <el-breadcrumb separator="/">
-          <el-breadcrumb-item>{{$route.query.name}}</el-breadcrumb-item>
+          <el-breadcrumb-item>{{$route.meta.title}}</el-breadcrumb-item>
         </el-breadcrumb>
 
       </div>
@@ -36,22 +36,14 @@
     name: 'Index',
     data() {
       return {
-        rightWidth: 0,
+        rightWidth: 0
       }
     },
-    beforeRouteEnter(to, from, next) {
-      next(vm => {
-        if (vm.getLoginStatus !== '0') {
-          vm.$router.replace('/login')
-        }
-      })
-    },
     created() {
-      document.title = '首页'
       this.getMenu();
     },
     computed: {
-      ...mapGetters(['getUserInfo', 'getLoginStatus', 'getMenuList', 'getToken','getRefreshToken'])
+      ...mapGetters(['getUserInfo', 'getLoginStatus', 'getToken','getRefreshToken'])
     },
     mounted() {
       this.rightWidth = document.documentElement.clientWidth - this.$refs.right.getBoundingClientRect().left;

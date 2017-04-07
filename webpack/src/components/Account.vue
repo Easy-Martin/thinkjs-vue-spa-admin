@@ -12,7 +12,6 @@
                 <el-table-column prop="update_by" label="操作人员" width="150"></el-table-column>
                 <el-table-column prop="mobile" label="电话"></el-table-column>
                 <el-table-column prop="address" label="地址"></el-table-column>
-
                 <el-table-column inline-template :context="_self" fixed="right" label="操作" width="100">
                     <span>
                         <el-button type="text" @click="showEdit($index,'1')" size="small">编辑</el-button>

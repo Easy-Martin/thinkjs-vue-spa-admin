@@ -6,10 +6,11 @@
 </template>
 
 <script>
+import test from './utils/test'
 export default {
   name: 'App',
   created(){
-    
+      console.log(test)
   }
 }
 </script>

@@ -1,15 +1,35 @@
-export function getToken (state){
+/**
+ * 获取token
+ * @param {*object} state 
+ */
+export function getToken(state) {
     return state.admin.token
 }
-export function getRefreshToken (state){
+/**
+ * 获取refresh_token
+ * @param {*object} state 
+ */
+export function getRefreshToken(state) {
     return state.admin.refreshToken
 }
-export function getUserInfo (state){
+/**
+ * 获取用户信息
+ * @param {*object} state 
+ */
+export function getUserInfo(state) {
     return state.admin.userInfo
 }
-export function getLoginStatus (state){
+/**
+ * 获取登陆状态
+ * @param {*object} state 
+ */
+export function getLoginStatus(state) {
     return state.admin.loginStatus
 }
-export function getMenuList (state){
+/**
+ * 获取菜单列表
+ * @param {*object} state 
+ */
+export function getMenuList(state) {
     return state.admin.menuList
 }

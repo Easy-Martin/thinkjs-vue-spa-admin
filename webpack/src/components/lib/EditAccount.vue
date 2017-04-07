@@ -28,12 +28,18 @@
                             <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="可选择填写" v-model="newAccount.address">
                             </el-input>
                         </el-form-item>
+                        <el-form-item label="可访问菜单权限">
+                            <el-checkbox-group v-model="menu">
+                                <el-checkbox v-for="page in pages" :label="page.menu_id" :key="page.menu_id" :disabled="page.disabled">{{page.name}}</el-checkbox>
+                            </el-checkbox-group>
+                        </el-form-item>
                         <el-form-item style="width:100%;">
                             <el-button type="primary" :loading="newAccount.editloading" @click="editAccount">{{(newAccount.actionType==0)?'添加账户':'修改账户'}}</el-button>
                             <el-button type="success" :loading="newAccount.resetloading" @click="resetpasswd" v-show="newAccount.actionType!=0">密码重置</el-button>
                             <el-button type="warning" :loading="newAccount.delloading" @click="delUser" v-show="newAccount.actionType!=0">删除账户</el-button>
                             <el-button type="danger" @click="cancel">取消操作</el-button>
                         </el-form-item>
+                        
 
                         <el-form-item>
                             <transition name="errorMove">
@@ -52,10 +58,17 @@
     </div>
 </template>
 <script>
+    import { mapGetters } from 'vuex';
     export default {
         name: 'EDIT_ACCOUNT',
         data(){
            return {
+                menu:[],
+                pages:[{
+                    name:'账户管理',
+                    type:'success',
+                    id:11
+                }],
                 rules:{
                     name:[{ required: true, message: '请输入姓名', trigger: 'blur' }],
                     username: [
@@ -68,6 +81,25 @@
                     ],
                 }
            } 
+        },
+        created(){
+            let temp_arr1 = this.getMenuList.allMenu;
+            let temp_arr2 =  [];
+            temp_arr1.forEach((item,index) => {
+                if(item.menu_id === '6'){
+                    item.disabled = true;
+                } else {
+                    item.disabled = false;
+                }
+            });
+            this.getMenuList.thisMenu.forEach((item,index) => {
+                temp_arr2.push(item.menu_id)
+            });
+            this.pages = temp_arr1;
+            this.menu = temp_arr2;
+        },
+        computed:{
+            ...mapGetters(['getMenuList']),
         },
         methods:{
             cancel(){
@@ -97,6 +129,9 @@
                     return false;
                 }
                 this.$emit('delUser')
+            },
+            showAllMenu(){
+                alert(1)
             }
         },
         props:{

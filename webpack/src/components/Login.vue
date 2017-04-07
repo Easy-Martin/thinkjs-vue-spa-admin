@@ -35,9 +35,6 @@
         components: {
             LoginButton
         },
-        created() {
-            document.title = ' 登陆';
-        },
         methods: {
             ...mapActions(['loginAction']),
             submitAction(e) {
@@ -93,6 +90,7 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        width:300px;
     }
     
     .login h2 {
