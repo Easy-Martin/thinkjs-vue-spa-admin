@@ -56,7 +56,7 @@
         });
       },
       getMenu(){
-        this.setMenuList({ token: this.getToken }).catch(err => {
+        return this.setMenuList({ token: this.getToken }).catch(err => {
           updateToken(this, err ,this.getMenu)
         })
       }

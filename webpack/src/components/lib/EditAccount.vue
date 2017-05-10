@@ -82,24 +82,31 @@
                 }
            } 
         },
-        created(){
-            let temp_arr1 = this.getMenuList.allMenu;
-            let temp_arr2 =  [];
-            temp_arr1.forEach((item,index) => {
-                if(item.menu_id === '6'){
-                    item.disabled = true;
-                } else {
-                    item.disabled = false;
-                }
-            });
-            this.getMenuList.thisMenu.forEach((item,index) => {
-                temp_arr2.push(item.menu_id)
-            });
-            this.pages = temp_arr1;
-            this.menu = temp_arr2;
+        mounted(){
+            this.$nextTick(()=>{
+                
+            }) 
         },
         computed:{
             ...mapGetters(['getMenuList']),
+        },
+        watch:{
+            'getMenuList'(n,o){
+                let temp_arr1 = n;
+                let temp_arr2 =  [];
+                temp_arr1.forEach((item,index) => {
+                    if(item.menu_id === '6'){
+                        item.disabled = true;
+                    } else {
+                        item.disabled = false;
+                    }
+                });
+                n.forEach((item,index) => {
+                    temp_arr2.push(item.menu_id)
+                });
+                this.pages = temp_arr1;
+                this.menu = temp_arr2;
+            }
         },
         methods:{
             cancel(){

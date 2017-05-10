@@ -9,8 +9,8 @@
   import {mapGetters,mapActions} from 'vuex';
 
   function getIndex(){
-      let index = sessionStorage.getItem('currentIndex') || '0';
-      return (/^[0-9]+$/.test(index))? parseInt(index).toString(): '0'
+      let index = sessionStorage.getItem('currentIndex') || 0;
+      return (/^[0-9]+$/.test(index))? parseInt(index).toString(): 0
   }
 
   export default {
@@ -22,7 +22,7 @@
     computed:{
         ...mapGetters(['getToken','getMenuList']),
         thisMenu(){
-            return this.getMenuList.thisMenu
+            return this.getMenuList
         }
     },
     methods: {

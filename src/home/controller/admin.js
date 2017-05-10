@@ -1,7 +1,7 @@
 'use strict';
 
 import Base from './base.js';
-
+const KEY = '__TX_ADMIN_USER__';
 export default class extends Base {
     async menulistAction() {
         let token = this.http.headers['x-access-token'];

@@ -113,6 +113,9 @@
                     this.newAccount.type = 'success';
                     this.newAccount.msg = (this.newAccount.actionType == '0') ? '添加账户成功' : '修改账户成功';
                     this.newAccount.isNotice = true;
+                    setTimeout(()=>{
+                        this.cancel();
+                    },2000)
                 }).catch(err => {
                     updateToken(this, err ,this.editAccount).catch(err =>{
                         this.newAccount.type = 'error';

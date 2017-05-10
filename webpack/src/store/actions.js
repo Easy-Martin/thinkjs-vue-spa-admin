@@ -108,7 +108,7 @@ export function getUserList({ commit }, payload) {
 }
 
 /**
- * 设置用户列表
+ * 编辑用户列表
  * @param {*function} commit 
  * @param {*object} payload 
  */
@@ -125,7 +125,7 @@ export function editUser({ commit }, payload) {
 }
 
 /**
- * 设置用户列表
+ * 管理员重置用户密码
  * @param {*function} commit 
  * @param {*object} payload 
  */

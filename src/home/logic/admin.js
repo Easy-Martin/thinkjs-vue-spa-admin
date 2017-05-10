@@ -26,13 +26,12 @@ export default class extends think.logic.base {
         let rules = {
             username: {required: true, string: true},
             type: {required: true, string: true},
-            uuid: {required: true, string: true},
             password:'string|requiredIf:type,0',
             name: {required: true, string: true},
             token: {required:true, string:true, value:this.header('x-access-token')}
         }
         if(!this.validate(rules)){
-            return this.fail('validate error', this.errors());
+            return this.fail('参数错误', this.errors());
         }
     }
     resetpasswdAction(){
