@@ -58,7 +58,8 @@ export default class extends think.controller.base {
    * @return {Promise}      []
    */
   _404Action(){
-    return this.displayError(404);
+    return this.redirect('/');
+    //return this.displayError(404);
   }
   /**
    * Internal Server Error

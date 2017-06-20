@@ -17,6 +17,7 @@ export default class extends think.logic.base {
         if (!token || think.isEmpty(token)) {
             return this.fail('LOGIN_EXPIRED');
         }
+        console.log(token)
         await global.verifyToken(token).catch(e => {
             return this.fail('LOGIN_EXPIRED');
         })
@@ -40,7 +41,7 @@ export default class extends think.logic.base {
             token: {required:true, string:true, value:this.header('x-access-token')}
         }
         if(!this.validate(rules)){
-            return this.fail('validate error', this.errors());
+            return this.fail('参数错误', this.errors());
         }
     }
     editselfinfoAction(){
@@ -49,7 +50,7 @@ export default class extends think.logic.base {
             token: {required:true, string:true, value:this.header('x-access-token')}
         }
         if(!this.validate(rules)){
-            return this.fail('validate error', this.errors());
+            return this.fail('参数错误', this.errors());
         }
     }
     resetselfpasswdAction(){
@@ -59,7 +60,7 @@ export default class extends think.logic.base {
             token: {required:true, string:true, value:this.header('x-access-token')}
         }
         if(!this.validate(rules)){
-            return this.fail('validate error', this.errors());
+            return this.fail('参数错误', this.errors());
         }
     }
 }
