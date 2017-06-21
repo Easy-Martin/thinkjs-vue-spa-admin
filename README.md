@@ -13,7 +13,7 @@
 
 `npm install`
 
-`npm run build`
+`npm run watch`
 
 http://localhost:8360
 
