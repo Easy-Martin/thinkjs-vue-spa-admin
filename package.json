@@ -6,7 +6,8 @@
     "start": "node www/development.js",
     "compile": "babel src/ --out-dir app/",
     "watch-compile": "node -e \"console.log('<npm run watch-compile> no longer need, use <npm start> command direct.');console.log();\"",
-    "watch": "npm run watch-compile"
+    "watch": "npm run watch-compile",
+	"vue-dev":"node webpack/build/build-conf.js"
   },
   "dependencies": {
     "babel-runtime": "6.x.x",

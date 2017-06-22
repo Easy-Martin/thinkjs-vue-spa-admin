@@ -7,10 +7,7 @@
 
 <script>
 export default {
-  name: 'App',
-  created(){
-      alert(8888)
-  }
+  name: 'App'
 }
 </script>
 <style lang="css">
